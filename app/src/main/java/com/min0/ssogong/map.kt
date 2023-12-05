@@ -3,10 +3,8 @@ package com.min0.ssogong
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import com.min0.ssogong.databinding.ActivityMain1Binding
-import com.min0.ssogong.databinding.ActivityMainBinding
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraUpdate
 import com.naver.maps.map.LocationTrackingMode
@@ -17,7 +15,7 @@ import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.overlay.OverlayImage
 import com.naver.maps.map.util.FusedLocationSource
 
-class MainActivity1 : AppCompatActivity(), OnMapReadyCallback {
+class Map : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding : ActivityMain1Binding
     private lateinit var naverMap:NaverMap
     private lateinit var locationSource : FusedLocationSource
@@ -52,7 +50,7 @@ class MainActivity1 : AppCompatActivity(), OnMapReadyCallback {
         val uiSetting = naverMap.uiSettings
         uiSetting.isLocationButtonEnabled=true
 
-        locationSource = FusedLocationSource(this@MainActivity1 ,LOCATION_PERMISSION_REQUEST_CODE )
+        locationSource = FusedLocationSource(this ,LOCATION_PERMISSION_REQUEST_CODE )
         naverMap.locationSource = locationSource
 
         // 마커 표시
